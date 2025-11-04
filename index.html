@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>KopiSantai Cafe & Resto - Company Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo"><i class="fas fa-coffee"></i>KopiSantai</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#facilities">Fasilitas</a></li>
+                    <li><a href="#gallery">Galeri</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Selamat Datang di KopiSantai Cafe & Resto</h1>
+            <p>Tempat terbaik untuk menikmati kopi berkualitas dan hidangan lezat dalam suasana yang nyaman dan santai.</p>
+            <a href="#menu" class="btn">Lihat Menu</a>
+            <a href="#contact" class="btn btn-secondary">Reservasi</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Cerita KopiSantai</h3>
+                    <p>KopiSantai didirikan pada tahun 2015 dengan misi memberikan pengalaman bersantai sambil menikmati kopi terbaik dan makanan lezat. Kami percaya bahwa setiap orang berhak menikmati momen tenang di tengah kesibukan sehari-hari.</p>
+                    <p>Dengan bahan-bahan pilihan dan proses penyajian yang teliti, kami menghadirkan cita rasa autentik yang memanjakan lidah Anda. Suasana cozy dan desain interior yang hangat membuat KopiSantai menjadi tempat favorit untuk berkumpul, bekerja, atau sekadar melepas penat.</p>
+                    <a href="#contact" class="btn">Kunjungi Kami</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="Interior KopiSantai">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title">Menu Kami</h2>
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">Semua</button>
+                <button class="category-btn" data-category="coffee">Kopi</button>
+                <button class="category-btn" data-category="non-coffee">Non-Kopi</button>
+                <button class="category-btn" data-category="food">Makanan</button>
+                <button class="category-btn" data-category="dessert">Dessert</button>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item" data-category="coffee">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Espresso">
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3>Espresso</h3>
+                            <span class="menu-item-price">Rp 25.000</span>
+                        </div>
+                        <p>Kopi murni dengan cita rasa kuat dan aroma yang khas.</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="coffee">
+                    <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Cappuccino">
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3>Cappuccino</h3>
+                            <span class="menu-item-price">Rp 32.000</span>
+                        </div>
+                        <p>Perpaduan sempurna espresso, steamed milk, dan foam.</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="non-coffee">
+                    <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80" alt="Chocolate Latte">
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3>Chocolate Latte</h3>
+                            <span class="menu-item-price">Rp 35.000</span>
+                        </div>
+                        <p>Minuman cokelat lezat dengan sentuhan latte art.</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="food">
+                    <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Beef Burger">
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3>Beef Burger</h3>
+                            <span class="menu-item-price">Rp 65.000</span>
+                        </div>
+                        <p>Burger dengan patty daging sapi premium dan sayuran segar.</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="food">
+                    <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Pasta Carbonara">
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3>Pasta Carbonara</h3>
+                            <span class="menu-item-price">Rp 55.000</span>
+                        </div>
+                        <p>Pasta dengan saus krim, keju parmesan, dan smoked beef.</p>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dessert">
+                    <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Tiramisu">
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3>Tiramisu</h3>
+                            <span class="menu-item-price">Rp 40.000</span>
+                        </div>
+                        <p>Dessert Italia klasik dengan rasa kopi yang lembut.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities">
+        <div class="container">
+            <h2 class="section-title">Fasilitas Kami</h2>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>WiFi Gratis</h3>
+                    <p>Nikmati koneksi internet cepat dan stabil selama Anda berkunjung.</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Stop Kontak</h3>
+                    <p>Tersedia banyak stop kontak untuk mengisi daya perangkat Anda.</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <h3>Area Parkir Luas</h3>
+                    <p>Parkir yang aman dan nyaman untuk kendaraan Anda.</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3>AC & Musik</h3>
+                    <p>Suasana nyaman dengan pendingin ruangan dan musik yang santai.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeri Kami</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1147&q=80" alt="Interior Cafe">
+                    <div class="gallery-overlay">
+                        <h3>Interior Nyaman</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Coffee Making">
+                    <div class="gallery-overlay">
+                        <h3>Proses Pembuatan</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Food Presentation">
+                    <div class="gallery-overlay">
+                        <h3>Hidangan Lezat</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="Cafe Atmosphere">
+                    <div class="gallery-overlay">
+                        <h3>Suasana Santai</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimoni Pelanggan</h2>
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Customer" class="testimonial-avatar">
+                    <p class="testimonial-text">"Kopi di sini memang istimewa! Suasana yang cozy membuat saya betah berlama-lama. Pelayanannya juga ramah dan cepat."</p>
+                    <p class="testimonial-author">- Sarah, Freelancer</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Customer" class="testimonial-avatar">
+                    <p class="testimonial-text">"Tempat favorit saya untuk meeting klien. WiFi-nya kencang, makanannya enak, dan harganya terjangkau."</p>
+                    <p class="testimonial-author">- Andi, Business Owner</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Customer" class="testimonial-avatar">
+                    <p class="testimonial-text">"Dessert tiramisu di sini paling enak! Sudah mencoba di banyak tempat, tapi tiramisu KopiSantai tetap yang terbaik."</p>
+                    <p class="testimonial-author">- Maya, Mahasiswa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>Jl. Kopi Santai No. 123, Jakarta Selatan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>+62 21 1234 5678</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@kopisantai.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Jam Operasional</h4>
+                            <div class="opening-hours">
+                                <p><span>Senin - Jumat:</span> <span>07.00 - 22.00</span></p>
+                                <p><span>Sabtu - Minggu:</span> <span>08.00 - 23.00</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Reservasi Meja</h3>
+                    <form>
+                        <input type="text" placeholder="Nama Lengkap" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="tel" placeholder="Nomor Telepon" required>
+                        <input type="date" placeholder="Tanggal Reservasi" required>
+                        <input type="time" placeholder="Waktu Reservasi" required>
+                        <input type="number" placeholder="Jumlah Orang" min="1" required>
+                        <textarea placeholder="Pesan Tambahan"></textarea>
+                        <button type="submit" class="btn">Pesan Sekarang</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>KopiSantai</h3>
+                    <p>Tempat terbaik untuk menikmati kopi berkualitas dan hidangan lezat dalam suasana yang nyaman.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Tautan Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#facilities">Fasilitas</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Menu Populer</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Espresso</a></li>
+                        <li><a href="#">Cappuccino</a></li>
+                        <li><a href="#">Beef Burger</a></li>
+                        <li><a href="#">Pasta Carbonara</a></li>
+                        <li><a href="#">Tiramisu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Jam Operasional</h3>
+                    <div class="opening-hours">
+                        <p><span>Senin - Jumat:</span> <span>07.00 - 22.00</span></p>
+                        <p><span>Sabtu - Minggu:</span> <span>08.00 - 23.00</span></p>
+                    </div>
+                    <p style="margin-top: 15px;">Reservasi disarankan untuk weekend</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 KopiSantai Cafe & Resto. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="jawa.js"></script>
+</body>
+</html>
