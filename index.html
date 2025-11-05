@@ -4,8 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>KopiSantai Cafe & Resto - Company Profile</title>
+    <title>KopiSantai Cafe & Resto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Tambahan CSS untuk fitur baru */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-float a {
+            color: white;
+            font-size: 32px;
+            text-decoration: none;
+        }
+
+        .whatsapp-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .whatsapp-link:hover {
+            text-decoration: underline;
+        }
+
+        .map-container {
+            margin-top: 20px;
+        }
+
+        .map {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .map iframe {
+            display: block;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow: auto;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            z-index: 2001;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-body img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        .modal-description {
+            padding: 25px;
+        }
+
+        .modal-description h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .btn-order {
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+            
+            .modal-body img {
+                max-height: 300px;
+            }
+            
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .whatsapp-float a {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .modal-content {
+                width: 98%;
+                margin: 5% auto;
+            }
+            
+            .modal-body img {
+                max-height: 250px;
+            }
+            
+            .modal-description {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -69,7 +237,7 @@
                 <button class="category-btn" data-category="dessert">Dessert</button>
             </div>
             <div class="menu-grid">
-                <div class="menu-item" data-category="coffee">
+                <div class="menu-item" data-category="coffee" data-id="espresso">
                     <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Espresso">
                     <div class="menu-item-info">
                         <div class="menu-item-header">
@@ -77,9 +245,10 @@
                             <span class="menu-item-price">Rp 25.000</span>
                         </div>
                         <p>Kopi murni dengan cita rasa kuat dan aroma yang khas.</p>
+                        <button class="btn btn-order" data-id="espresso">Pesan Sekarang</button>
                     </div>
                 </div>
-                <div class="menu-item" data-category="coffee">
+                <div class="menu-item" data-category="coffee" data-id="cappuccino">
                     <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Cappuccino">
                     <div class="menu-item-info">
                         <div class="menu-item-header">
@@ -87,9 +256,21 @@
                             <span class="menu-item-price">Rp 32.000</span>
                         </div>
                         <p>Perpaduan sempurna espresso, steamed milk, dan foam.</p>
+                        <button class="btn btn-order" data-id="cappuccino">Pesan Sekarang</button>
                     </div>
                 </div>
-                <div class="menu-item" data-category="non-coffee">
+                <div class="menu-item" data-category="coffee" data-id="americano">
+                    <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Americano">
+                    <div class="menu-item-info">
+                        <div class="menu-item-header">
+                            <h3>Americano</h3>
+                            <span class="menu-item-price">Rp 28.000</span>
+                        </div>
+                        <p>Espresso dengan tambahan air panas, rasa kopi yang lebih ringan namun tetap kuat.</p>
+                        <button class="btn btn-order" data-id="americano">Pesan Sekarang</button>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="non-coffee" data-id="chocolate-latte">
                     <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80" alt="Chocolate Latte">
                     <div class="menu-item-info">
                         <div class="menu-item-header">
@@ -97,9 +278,10 @@
                             <span class="menu-item-price">Rp 35.000</span>
                         </div>
                         <p>Minuman cokelat lezat dengan sentuhan latte art.</p>
+                        <button class="btn btn-order" data-id="chocolate-latte">Pesan Sekarang</button>
                     </div>
                 </div>
-                <div class="menu-item" data-category="food">
+                <div class="menu-item" data-category="food" data-id="beef-burger">
                     <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Beef Burger">
                     <div class="menu-item-info">
                         <div class="menu-item-header">
@@ -107,9 +289,10 @@
                             <span class="menu-item-price">Rp 65.000</span>
                         </div>
                         <p>Burger dengan patty daging sapi premium dan sayuran segar.</p>
+                        <button class="btn btn-order" data-id="beef-burger">Pesan Sekarang</button>
                     </div>
                 </div>
-                <div class="menu-item" data-category="food">
+                <div class="menu-item" data-category="food" data-id="pasta-carbonara">
                     <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Pasta Carbonara">
                     <div class="menu-item-info">
                         <div class="menu-item-header">
@@ -117,9 +300,10 @@
                             <span class="menu-item-price">Rp 55.000</span>
                         </div>
                         <p>Pasta dengan saus krim, keju parmesan, dan smoked beef.</p>
+                        <button class="btn btn-order" data-id="pasta-carbonara">Pesan Sekarang</button>
                     </div>
                 </div>
-                <div class="menu-item" data-category="dessert">
+                <div class="menu-item" data-category="dessert" data-id="tiramisu">
                     <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Tiramisu">
                     <div class="menu-item-info">
                         <div class="menu-item-header">
@@ -127,6 +311,7 @@
                             <span class="menu-item-price">Rp 40.000</span>
                         </div>
                         <p>Dessert Italia klasik dengan rasa kopi yang lembut.</p>
+                        <button class="btn btn-order" data-id="tiramisu">Pesan Sekarang</button>
                     </div>
                 </div>
             </div>
@@ -175,25 +360,25 @@
         <div class="container">
             <h2 class="section-title">Galeri Kami</h2>
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="gallery-item" data-id="interior">
                     <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1147&q=80" alt="Interior Cafe">
                     <div class="gallery-overlay">
                         <h3>Interior Nyaman</h3>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-id="coffee-making">
                     <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Coffee Making">
                     <div class="gallery-overlay">
                         <h3>Proses Pembuatan</h3>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-id="food-presentation">
                     <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Food Presentation">
                     <div class="gallery-overlay">
                         <h3>Hidangan Lezat</h3>
                     </div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" data-id="cafe-atmosphere">
                     <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80" alt="Cafe Atmosphere">
                     <div class="gallery-overlay">
                         <h3>Suasana Santai</h3>
@@ -263,6 +448,15 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/6282112345678" class="whatsapp-link">+62 821 1234 5678</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fas fa-clock"></i>
                         </div>
                         <div>
@@ -273,10 +467,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="map-container">
+                        <h4>Lokasi Kami</h4>
+                        <div class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613502864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5390917b759%3A0x6b45e839560a856!2sJakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1647853868385!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
                 </div>
                 <div class="contact-form">
                     <h3>Reservasi Meja</h3>
-                    <form>
+                    <form id="reservation-form">
                         <input type="text" placeholder="Nama Lengkap" required>
                         <input type="email" placeholder="Email" required>
                         <input type="tel" placeholder="Nomor Telepon" required>
@@ -302,7 +502,7 @@
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/6282112345678"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -318,11 +518,11 @@
                 <div class="footer-column">
                     <h3>Menu Populer</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Espresso</a></li>
-                        <li><a href="#">Cappuccino</a></li>
-                        <li><a href="#">Beef Burger</a></li>
-                        <li><a href="#">Pasta Carbonara</a></li>
-                        <li><a href="#">Tiramisu</a></li>
+                        <li><a href="#menu" data-id="espresso">Espresso</a></li>
+                        <li><a href="#menu" data-id="cappuccino">Cappuccino</a></li>
+                        <li><a href="#menu" data-id="americano">Americano</a></li>
+                        <li><a href="#menu" data-id="beef-burger">Beef Burger</a></li>
+                        <li><a href="#menu" data-id="tiramisu">Tiramisu</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -335,10 +535,245 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 KopiSantai Cafe & Resto. All Rights Reserved.</p>
+                <p>&copy; 2025 <a href="https://next-digital.my.id" target="_blank"><b style="color: aqua;">NEXONUS Teknologi Digital.</b></a> All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    <script src="jawa.js"></script>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/6282112345678" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="gallery-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="">
+                <div class="modal-description">
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-desc"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Modal -->
+    <div class="modal" id="menu-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <img id="menu-modal-image" src="" alt="">
+                <div class="modal-description">
+                    <h3 id="menu-modal-title"></h3>
+                    <p id="menu-modal-price"></p>
+                    <div id="menu-modal-desc"></div>
+                    <a href="https://wa.me/6282112345678?text=Saya%20ingin%20memesan%20" class="btn" id="whatsapp-order-btn">Pesan via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if(window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Menu category filtering
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.getAttribute('data-category');
+                
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Simple testimonial slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => {
+                testimonial.style.display = 'none';
+            });
+            
+            testimonials[index].style.display = 'block';
+        }
+
+        // Initially show first testimonial
+        showTestimonial(currentTestimonial);
+
+        // Auto rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Gallery Modal Functionality
+        const galleryModal = document.getElementById('gallery-modal');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const modalImage = document.getElementById('modal-image');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const closeModalButtons = document.querySelectorAll('.close-modal');
+
+        // Gallery descriptions
+        const galleryDescriptions = {
+            'interior': 'Interior KopiSantai yang nyaman dengan desain modern dan suasana hangat. Ruangan ini dirancang khusus untuk memberikan pengalaman bersantai yang maksimal dengan pencahayaan yang tepat dan tata letak yang ergonomis.',
+            'coffee-making': 'Proses pembuatan kopi oleh barista profesional kami. Setiap cangkir kopi dibuat dengan teliti menggunakan biji kopi pilihan dan teknik penyeduhan yang tepat untuk memastikan cita rasa terbaik.',
+            'food-presentation': 'Hidangan lezat dengan presentasi yang menarik. Kami tidak hanya memperhatikan rasa tetapi juga penampilan setiap hidangan untuk memberikan pengalaman kuliner yang menyeluruh.',
+            'cafe-atmosphere': 'Suasana santai di KopiSantai yang cocok untuk bekerja, berkumpul dengan teman, atau sekadar menikmati waktu sendiri sambil menyeruput kopi favorit.'
+        };
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imageSrc = item.querySelector('img').src;
+                const imageAlt = item.querySelector('img').alt;
+                const itemId = item.getAttribute('data-id');
+                
+                modalImage.src = imageSrc;
+                modalImage.alt = imageAlt;
+                modalTitle.textContent = item.querySelector('.gallery-overlay h3').textContent;
+                modalDesc.textContent = galleryDescriptions[itemId];
+                
+                galleryModal.style.display = 'block';
+            });
+        });
+
+        // Menu Modal Functionality
+        const menuModal = document.getElementById('menu-modal');
+        const orderButtons = document.querySelectorAll('.btn-order');
+        const menuModalImage = document.getElementById('menu-modal-image');
+        const menuModalTitle = document.getElementById('menu-modal-title');
+        const menuModalPrice = document.getElementById('menu-modal-price');
+        const menuModalDesc = document.getElementById('menu-modal-desc');
+        const whatsappOrderBtn = document.getElementById('whatsapp-order-btn');
+
+        // Menu descriptions
+        const menuDescriptions = {
+            'espresso': '<p>Espresso KopiSantai dibuat dari biji kopi Arabika pilihan yang disangrai dengan sempurna. Proses ekstraksi yang tepat menghasilkan crema yang tebal dan rasa kopi yang kuat namun seimbang.</p><p><strong>Bahan:</strong> Biji kopi Arabika, air panas</p><p><strong>Proses:</strong> Ekstraksi dengan mesin espresso profesional</p>',
+            'cappuccino': '<p>Cappuccino kami adalah perpaduan sempurna antara espresso berkualitas, steamed milk yang creamy, dan foam susu yang lembut. Rasio yang tepat antara ketiga komponen ini menciptakan minuman yang seimbang.</p><p><strong>Bahan:</strong> Espresso, susu segar, foam susu</p><p><strong>Proses:</strong> Steaming susu dengan suhu ideal</p>',
+            'americano': '<p>Americano dibuat dengan menambahkan air panas ke espresso, menghasilkan minuman kopi yang lebih ringan namun tetap mempertahankan karakteristik rasa kopi yang kuat. Cocok untuk mereka yang menyukai kopi hitam.</p><p><strong>Bahan:</strong> Espresso, air panas</p><p><strong>Proses:</strong> Penambahan air panas setelah ekstraksi espresso</p>',
+            'chocolate-latte': '<p>Chocolate Latte kami menggabungkan cokelat premium dengan susu steamed yang creamy. Disajikan dengan sentuhan latte art yang indah, minuman ini cocok untuk pecinta cokelat.</p><p><strong>Bahan:</strong> Cokelat premium, susu segar, espresso (opsional)</p><p><strong>Proses:</strong> Pencampuran cokelat dengan susu steamed</p>',
+            'beef-burger': '<p>Beef Burger kami menggunakan patty daging sapi premium 100% dengan rempah-rempah khusus. Disajikan dengan sayuran segar, keju, dan saus spesial dalam roti yang dipanggang sempurna.</p><p><strong>Bahan:</strong> Daging sapi premium, keju, selada, tomat, bawang, saus spesial</p><p><strong>Proses:</strong> Pemanggangan patty dengan suhu terkontrol</p>',
+            'pasta-carbonara': '<p>Pasta Carbonara autentik dengan saus krim yang kaya, keju parmesan, dan smoked beef. Pasta dimasak al dente untuk tekstur yang sempurna.</p><p><strong>Bahan:</strong> Pasta, krim, keju parmesan, smoked beef, telur, lada hitam</p><p><strong>Proses:</strong> Memasak dengan teknik tradisional Italia</p>',
+            'tiramisu': '<p>Tiramisu klasik dengan lapisan ladyfinger yang direndam espresso, mascarpone cream yang lembut, dan taburan cokelat. Dessert Italia yang sempurna untuk mengakhiri makan.</p><p><strong>Bahan:</strong> Mascarpone, ladyfinger, espresso, telur, gula, cokelat bubuk</p><p><strong>Proses:</strong> Penyusunan lapisan dan pendinginan minimal 4 jam</p>'
+        };
+
+        // Menu prices for WhatsApp message
+        const menuPrices = {
+            'espresso': 'Rp 25.000',
+            'cappuccino': 'Rp 32.000',
+            'americano': 'Rp 28.000',
+            'chocolate-latte': 'Rp 35.000',
+            'beef-burger': 'Rp 65.000',
+            'pasta-carbonara': 'Rp 55.000',
+            'tiramisu': 'Rp 40.000'
+        };
+
+        orderButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const itemId = button.getAttribute('data-id');
+                const menuItem = document.querySelector(`.menu-item[data-id="${itemId}"]`);
+                const imageSrc = menuItem.querySelector('img').src;
+                const itemName = menuItem.querySelector('h3').textContent;
+                const itemPrice = menuItem.querySelector('.menu-item-price').textContent;
+                
+                menuModalImage.src = imageSrc;
+                menuModalImage.alt = itemName;
+                menuModalTitle.textContent = itemName;
+                menuModalPrice.textContent = itemPrice;
+                menuModalDesc.innerHTML = menuDescriptions[itemId];
+                
+                // Update WhatsApp link with item name and price
+                const whatsappMessage = `Halo, saya ingin memesan ${itemName} (${menuPrices[itemId]}). Apakah bisa dipesan?`;
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                whatsappOrderBtn.href = `https://wa.me/6282112345678?text=${encodedMessage}`;
+                
+                menuModal.style.display = 'block';
+            });
+        });
+
+        // Close modal functionality
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                galleryModal.style.display = 'none';
+                menuModal.style.display = 'none';
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === galleryModal) {
+                galleryModal.style.display = 'none';
+            }
+            if (e.target === menuModal) {
+                menuModal.style.display = 'none';
+            }
+        });
+
+        // Form submission
+        document.getElementById('reservation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Reservasi Anda telah berhasil dikirim. Kami akan menghubungi Anda untuk konfirmasi.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
